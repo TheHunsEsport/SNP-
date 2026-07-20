@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #09090b;
-    --card-bg: rgba(18, 18, 22, 0.85);
-    --yellow: #facc15;
-    --yellow-hover: #eab308;
-    --yellow-glow: rgba(250, 204, 21, 0.25);
-    --line: rgba(250, 204, 21, 0.12);
+    --bg: #030305;
+    --card-bg: rgba(14, 14, 18, 0.85);
+    --yellow: #CCFF00;
+    --yellow-hover: #b3e600;
+    --yellow-glow: rgba(204, 255, 0, 0.4);
+    --line: rgba(204, 255, 0, 0.08);
     --grey: #a1a1aa;
     --grey-light: #f4f4f5;
-    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color: rgba(204, 255, 0, 0.15);
     --radius-lg: 24px;
     --radius-md: 16px;
     --radius-sm: 12px;
@@ -38,67 +38,31 @@
     align-items: center;
   }
 
-  /* ---------- FOND DESIGN & IMMERSIF ---------- */
+  /* ---------- FOND VAGUE LUMINEUSE DYNAMIQUE JAUNE FLUO PUR ---------- */
   .bg-layer {
     position: fixed;
     inset: 0;
     z-index: 0;
+    pointer-events: none;
+    background: #030305;
     overflow: hidden;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 20%, #181402 0%, var(--bg) 70%);
-  }
- 
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    background: var(--yellow);
-    filter: blur(160px);
-    opacity: 0.12;
-    mix-blend-mode: screen;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
- 
-  .blob.b1 { width: 700px; height: 700px; top: -30%; left: -10%; animation-name: drift1; animation-duration: 25s; }
-  .blob.b2 { width: 600px; height: 600px; top: 30%; right: -15%; animation-name: drift2; animation-duration: 32s; }
-  .blob.b3 { width: 550px; height: 550px; bottom: -20%; left: 25%; animation-name: drift3; animation-duration: 28s; }
- 
-  @keyframes drift1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(120px, 90px) scale(1.1); }
-    66% { transform: translate(60px, 150px) scale(0.9); }
-  }
-  @keyframes drift2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(-140px, 100px) scale(1.15); }
-    66% { transform: translate(-40px, -90px) scale(0.85); }
-  }
-  @keyframes drift3 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(100px, -110px) scale(1.05); }
-    66% { transform: translate(-80px, -50px) scale(0.95); }
-  }
- 
-  .noise-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.025"/></svg>');
-    pointer-events: none;
   }
 
-  .grid-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 80px 80px;
-    opacity: 0.4;
-    pointer-events: none;
+  .light-wave {
+    position: absolute;
+    width: 200vw;
+    height: 200vh;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(from 0deg at 50% 50%, rgba(204, 255, 0, 0.03) 0deg, transparent 60deg, rgba(204, 255, 0, 0.09) 120deg, transparent 180deg);
+    animation: rotateWave 25s linear infinite;
   }
- 
+
+  @keyframes rotateWave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
   canvas#network {
     position: fixed;
     inset: 0;
@@ -124,12 +88,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(18, 18, 22, 0.8);
+    background: rgba(12, 12, 16, 0.85);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-color);
     padding: 6px 16px 6px 10px;
     border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
   .logo-img {
@@ -155,8 +119,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: rgba(250, 204, 21, 0.08);
-    border: 1px solid rgba(250, 204, 21, 0.2);
+    background: rgba(204, 255, 0, 0.08);
+    border: 1px solid rgba(204, 255, 0, 0.25);
     padding: 6px 14px;
     border-radius: 30px;
     font-size: 0.75rem;
@@ -189,7 +153,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-color);
     padding: 6px 16px;
     border-radius: 30px;
@@ -203,9 +167,9 @@
   .hero-tag span {
     width: 8px;
     height: 8px;
-    background-color: #22c55e;
+    background-color: var(--yellow);
     border-radius: 50%;
-    box-shadow: 0 0 10px #22c55e;
+    box-shadow: 0 0 10px var(--yellow);
   }
 
   .content h1 {
@@ -232,8 +196,8 @@
  
   /* Bouton d'action */
   .neon-bar {
-    background: linear-gradient(135deg, #fde047 0%, var(--yellow) 100%);
-    color: #09090b;
+    background: linear-gradient(135deg, #d6ff33 0%, var(--yellow) 100%);
+    color: #030305;
     border: none;
     padding: 18px 32px;
     width: 100%;
@@ -245,7 +209,7 @@
     letter-spacing: 0.02em;
     text-align: center;
     cursor: pointer;
-    box-shadow: 0 0 30px rgba(250, 204, 21, 0.35), 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 0 35px rgba(204, 255, 0, 0.45), 0 4px 12px rgba(0,0,0,0.3);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -253,7 +217,7 @@
 
   .neon-bar:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 45px rgba(250, 204, 21, 0.55);
+    box-shadow: 0 0 50px rgba(204, 255, 0, 0.7);
   }
 
   .secure-hint {
@@ -269,10 +233,10 @@
   .secure-hint svg {
     width: 12px;
     height: 12px;
-    fill: #22c55e;
+    fill: var(--yellow);
   }
 
-  /* ---------- SECTION AVANTAGES CENTRÉE (1 seule colonne harmonieuse) ---------- */
+  /* ---------- SECTION AVANTAGES CENTRÉE ---------- */
   .features-grid {
     position: relative;
     z-index: 2;
@@ -302,7 +266,7 @@
   .feature-icon {
     width: 36px;
     height: 36px;
-    background: rgba(250, 204, 21, 0.1);
+    background: rgba(204, 255, 0, 0.1);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -330,7 +294,7 @@
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(3, 3, 5, 0.85);
     backdrop-filter: blur(16px);
     z-index: 100;
     display: flex;
@@ -348,13 +312,13 @@
   }
 
   .modal-content {
-    background: #121216;
-    border: 1px solid rgba(250, 204, 21, 0.2);
+    background: #0d0d12;
+    border: 1px solid rgba(204, 255, 0, 0.3);
     border-radius: var(--radius-lg);
     padding: 28px 20px;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(204, 255, 0, 0.15);
     transform: scale(0.95) translateY(15px);
     transition: transform 0.35s ease;
   }
@@ -401,7 +365,7 @@
   .form-group input {
     width: 100%;
     padding: 14px;
-    background: rgba(8, 8, 10, 0.9);
+    background: rgba(5, 5, 8, 0.9);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     color: #fff;
@@ -412,6 +376,7 @@
 
   .form-group input:focus {
     border-color: var(--yellow);
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.25);
   }
 
   .hidden {
@@ -437,7 +402,8 @@
 
   .modal-btn.submit {
     background: var(--yellow);
-    color: #09090b;
+    color: #030305;
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.35);
   }
 
   .modal-btn.cancel {
@@ -451,7 +417,7 @@
     position: relative;
     z-index: 2;
     padding: 30px 20px;
-    background: linear-gradient(to top, rgba(9,9,11,1) 60%, transparent);
+    background: linear-gradient(to top, rgba(3,3,5,1) 60%, transparent);
     border-top: 1px solid var(--border-color);
     margin-top: auto;
     width: 100%;
@@ -483,6 +449,7 @@
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--yellow);
+    text-shadow: 0 0 10px var(--yellow-glow);
   }
 
   .stat .label {
@@ -508,14 +475,10 @@
     </div>
   </header>
 
-  <!-- Fond immersif -->
+  <!-- Fond avec vagues lumineuses -->
   <div class="bg-layer">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
+    <div class="light-wave"></div>
   </div>
-  <div class="noise-overlay"></div>
-  <div class="grid-overlay"></div>
   <canvas id="network"></canvas>
  
   <!-- Contenu Principal -->
@@ -550,7 +513,7 @@
     <div class="feature-card">
       <div class="feature-icon">💬</div>
       <h4>Support Dédié</h4>
-      <p>Une équipe à votre écoute 24h/24h pour vous accompagner pas à pas.</p>
+      <p>Une équipe à votre écoute 24h/24 pour vous accompagner pas à pas.</p>
     </div>
   </div>
 
@@ -597,7 +560,7 @@
         <div class="label">Sécurisé</div>
       </div>
       <div class="stat">
-        <div class="value">24h/24h</div>
+        <div class="value">24h/24</div>
         <div class="label">Support Actif</div>
       </div>
       <div class="stat">
@@ -690,7 +653,7 @@
   const canvas = document.getElementById('network');
   const ctx = canvas.getContext('2d');
   let w, h, particles;
-  const COLOR = '250,204,21'; 
+  const COLOR = '204,255,0'; 
  
   function resize(){
     w = canvas.width = window.innerWidth;
