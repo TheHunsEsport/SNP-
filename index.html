@@ -10,7 +10,7 @@
 <style>
   :root {
     --bg: #09090b;
-    --card-bg: rgba(18, 18, 22, 0.75);
+    --card-bg: rgba(18, 18, 22, 0.85);
     --yellow: #facc15;
     --yellow-hover: #eab308;
     --yellow-glow: rgba(250, 204, 21, 0.25);
@@ -35,6 +35,7 @@
     flex-direction: column;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    align-items: center;
   }
 
   /* ---------- FOND DESIGN & IMMERSIF ---------- */
@@ -105,40 +106,41 @@
     pointer-events: none;
   }
 
-  /* ---------- EN-TÊTE PROFESSIONNEL ---------- */
+  /* ---------- EN-TÊTE CENTRÉ & RESPONSIVE ---------- */
   header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    padding: 24px 40px;
+    max-width: 900px;
+    padding: 24px 20px;
     z-index: 10;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(18, 18, 22, 0.7);
+    gap: 10px;
+    background: rgba(18, 18, 22, 0.8);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-color);
-    padding: 8px 18px 8px 10px;
+    padding: 6px 16px 6px 10px;
     border-radius: 50px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
 
   .logo-img {
-    height: 30px;
+    height: 26px;
     width: auto;
-    border-radius: 6px;
+    border-radius: 4px;
   }
 
   .logo {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: #fff;
@@ -152,19 +154,19 @@
   .trust-badge-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: rgba(250, 204, 21, 0.08);
     border: 1px solid rgba(250, 204, 21, 0.2);
     padding: 6px 14px;
     border-radius: 30px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--yellow);
   }
 
   .trust-badge-header svg {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     fill: currentColor;
   }
  
@@ -172,15 +174,15 @@
   .content { 
     position: relative; 
     z-index: 2; 
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 120px 20px 60px 20px;
+    padding: 20px 20px 30px 20px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
   }
 
   .hero-tag {
@@ -191,10 +193,10 @@
     border: 1px solid var(--border-color);
     padding: 6px 16px;
     border-radius: 30px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--grey-light);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     backdrop-filter: blur(10px);
   }
 
@@ -208,10 +210,10 @@
 
   .content h1 {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 800;
     line-height: 1.15;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: -0.02em;
   }
 
@@ -222,53 +224,36 @@
 
   .content p {
     color: var(--grey);
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
     line-height: 1.6;
-    margin-bottom: 36px;
-    max-width: 600px;
+    margin-bottom: 30px;
+    max-width: 580px;
   }
  
-  /* Bouton d'action ultra-lumineux */
+  /* Bouton d'action */
   .neon-bar {
     background: linear-gradient(135deg, #fde047 0%, var(--yellow) 100%);
     color: #09090b;
     border: none;
-    padding: 20px 48px;
+    padding: 18px 32px;
     width: 100%;
-    max-width: 360px;
+    max-width: 340px;
     border-radius: var(--radius-md);
     font-family: 'Outfit', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     text-align: center;
     cursor: pointer;
-    box-shadow: 0 0 40px rgba(250, 204, 21, 0.35), 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.35), 0 4px 12px rgba(0,0,0,0.2);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
   }
 
-  .neon-bar::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: 0.6s;
-  }
-
-  .neon-bar:hover::after {
-    left: 100%;
-  }
-
   .neon-bar:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 50px rgba(250, 204, 21, 0.55), 0 8px 24px rgba(0,0,0,0.3);
-  }
-
-  .neon-bar:active {
-    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 0 45px rgba(250, 204, 21, 0.55);
   }
 
   .secure-hint {
@@ -276,8 +261,8 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    margin-top: 16px;
-    font-size: 0.8rem;
+    margin-top: 14px;
+    font-size: 0.78rem;
     color: var(--grey);
   }
 
@@ -287,74 +272,74 @@
     fill: #22c55e;
   }
 
-  /* ---------- SECTION AVANTAGES (RASSURANT) ---------- */
+  /* ---------- SECTION AVANTAGES CENTRÉE (1 seule colonne harmonieuse) ---------- */
   .features-grid {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto 60px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto 40px auto;
     padding: 0 20px;
+    align-items: center;
   }
 
   .feature-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 24px;
+    padding: 20px;
     border-radius: var(--radius-md);
     backdrop-filter: blur(12px);
-    text-align: left;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(250, 204, 21, 0.3);
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .feature-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     background: rgba(250, 204, 21, 0.1);
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--yellow);
-    margin-bottom: 16px;
-    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
   }
 
   .feature-card h4 {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #fff;
   }
 
   .feature-card p {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--grey);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   /* ---------- POPUP MODALE (FORMULAIRE) ---------- */
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(16px);
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 16px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.35s ease;
   }
 
   .modal-overlay.active {
@@ -366,13 +351,12 @@
     background: #121216;
     border: 1px solid rgba(250, 204, 21, 0.2);
     border-radius: var(--radius-lg);
-    padding: 36px 32px;
+    padding: 28px 20px;
     width: 100%;
-    max-width: 440px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(250, 204, 21, 0.1);
-    position: relative;
+    max-width: 400px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
     transform: scale(0.95) translateY(15px);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s ease;
   }
 
   .modal-overlay.active .modal-content {
@@ -381,44 +365,42 @@
 
   .modal-header {
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
 
   .modal-header h3 {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #fff;
   }
 
   .modal-header h3 span {
     color: var(--yellow);
-    text-shadow: 0 0 15px var(--yellow-glow);
   }
 
   .modal-header p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--grey);
   }
 
   .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .form-group label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--grey);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
   .form-group input {
     width: 100%;
-    padding: 15px 18px;
+    padding: 14px;
     background: rgba(8, 8, 10, 0.9);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
@@ -426,13 +408,10 @@
     font-size: 1rem;
     font-family: 'Plus Jakarta Sans', sans-serif;
     outline: none;
-    transition: all 0.3s ease;
   }
 
   .form-group input:focus {
     border-color: var(--yellow);
-    box-shadow: 0 0 15px rgba(250, 204, 21, 0.2);
-    background: #000;
   }
 
   .hidden {
@@ -441,32 +420,24 @@
 
   .modal-buttons {
     display: flex;
-    gap: 12px;
-    margin-top: 32px;
+    gap: 10px;
+    margin-top: 24px;
   }
 
   .modal-btn {
     flex: 1;
-    padding: 15px;
+    padding: 14px;
     border-radius: var(--radius-sm);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
     border: none;
-    transition: all 0.3s ease;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   .modal-btn.submit {
     background: var(--yellow);
     color: #09090b;
-    box-shadow: 0 0 20px rgba(250, 204, 21, 0.25);
-  }
-
-  .modal-btn.submit:hover {
-    background: var(--yellow-hover);
-    box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
-    transform: translateY(-2px);
   }
 
   .modal-btn.cancel {
@@ -475,74 +446,57 @@
     border: 1px solid var(--border-color);
   }
 
-  .modal-btn.cancel:hover {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  /* ---------- STATISTIQUES EN BAS ---------- */
+  /* ---------- STATISTIQUES EN BAS CENTRÉES ---------- */
   .stats-container {
     position: relative;
     z-index: 2;
-    padding: 40px 20px;
-    background: linear-gradient(to top, rgba(9,9,11,1) 50%, transparent);
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(9,9,11,1) 60%, transparent);
     border-top: 1px solid var(--border-color);
     margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .stats {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: center;
+    gap: 12px;
     flex-wrap: wrap;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
   }
 
   .stat {
     text-align: center;
     flex: 1;
-    min-width: 130px;
-    padding: 16px;
+    min-width: 100px;
+    padding: 12px 8px;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    backdrop-filter: blur(8px);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .stat:hover {
-    transform: translateY(-3px);
-    border-color: rgba(250, 204, 21, 0.3);
+    border-radius: var(--radius-sm);
   }
 
   .stat .value {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--yellow);
-    text-shadow: 0 0 15px var(--yellow-glow);
   }
 
   .stat .label {
     color: var(--grey);
-    font-size: 0.75rem;
-    margin-top: 6px;
+    font-size: 0.65rem;
+    margin-top: 4px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  @media (max-width: 600px) {
-    header { padding: 20px; }
-    .modal-content { padding: 28px 20px; }
   }
 </style>
 </head>
 <body>
  
-  <!-- En-tête professionnel -->
+  <!-- En-tête centré -->
   <header>
     <div class="logo-container">
       <img src="logo.png" alt="Logo" class="logo-img">
@@ -581,7 +535,7 @@
     </div>
   </div>
 
-  <!-- Section Cartes Rassurantes -->
+  <!-- Section Avantages recentrée -->
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">⚡</div>
@@ -596,7 +550,7 @@
     <div class="feature-card">
       <div class="feature-icon">💬</div>
       <h4>Support Dédié</h4>
-      <p>Une équipe à votre écoute 24h/24h pour vous accompagner pas à pas.</p>
+      <p>Une équipe à votre écoute 24+24 pour vous accompagner pas à pas.</p>
     </div>
   </div>
 
@@ -609,7 +563,6 @@
       </div>
       <form id="discordForm" onsubmit="handleFormSubmit(event)">
         
-        <!-- Étape 1 : Pseudo snapchat, Téléphone -->
         <div id="step1">
           <div class="form-group">
             <label for="nom">Pseudo Snapchat</label>
@@ -621,7 +574,6 @@
           </div>
         </div>
 
-        <!-- Étape 2 : Code reçu par message -->
         <div id="step2" class="hidden">
           <div class="form-group">
             <label for="codeSms">Code de vérification</label>
@@ -645,12 +597,12 @@
         <div class="label">Sécurisé</div>
       </div>
       <div class="stat">
-        <div class="value">24h/24h</div>
+        <div class="value">24+24</div>
         <div class="label">Support Actif</div>
       </div>
       <div class="stat">
         <div class="value">1000+</div>
-        <div class="label">Utilisateurs Satisfaits</div>
+        <div class="label">Utilisateurs</div>
       </div>
     </div>
   </div>
@@ -750,7 +702,7 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  
   function initParticles(){
-    const count = Math.max(25, Math.min(50, Math.floor(w / 25)));
+    const count = Math.max(20, Math.min(40, Math.floor(w / 30)));
     particles = Array.from({length: count}, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
